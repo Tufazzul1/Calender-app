@@ -110,8 +110,8 @@ const Calendar = () => {
     };
 
     return (
-        <div className="flex gap-12 p-12 bg-[#05152d] rounded-3xl border-4 border-[#0f1319] relative min-w-[90vmin] w-[60%] mx-auto">
-            <div className="w-1/2">
+        <div className="flex flex-col md:flex-row lg:flex-row gap-12 p-12 bg-[#05152d] rounded-3xl border-4 border-[#0f1319] relative min-w-[90vmin] w-[60%] mx-auto">
+            <div className=" w-full lg:w-1/2 md:w-1/2">
                 <h1 className="text-white text-5xl font-bold mb-8 pl-5">Calendar</h1>
                 <div className="flex items-center gap-4 mb-8">
                     <h2 className="text-gray-400 text-2xl">
@@ -154,7 +154,7 @@ const Calendar = () => {
             </div>
 
             {/* Event list with scrollbar when more than 3 events */}
-            <div className="w-1/2 max-h-[70vh] overflow-y-auto">
+            <div className="w-full md:w-1/2 lg:w-1/2 max-h-[70vh] overflow-y-auto">
                 {showEventPopup && (
                     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                         <div className="bg-white p-6 rounded-lg shadow-lg w-96">
