@@ -14,7 +14,7 @@ const Calendar = () => {
     const [selectedDate, setSelectedDate] = useState(currentDate);
     const [showEventPopup, setShowEventPopup] = useState(false);
     const [events, setEvents] = useState([]);
-    const [eventTime, setEventTime] = useState({ hours: '00', minutes: '00' });
+    const [eventTime, setEventTime] = useState({ hours: '', minutes: '' });
     const [eventText, setEventText] = useState('');
     const [editingEvent, setEditingEvent] = useState(null);
     const [selectedEvent, setSelectedEvent] = useState(null);
@@ -39,7 +39,7 @@ const Calendar = () => {
         if (clickedDate >= today || isSameDay(clickedDate, today)) {
             setSelectedDate(clickedDate);
             setShowEventPopup(true);
-            setEventTime({ hours: '00', minutes: '00' });
+            setEventTime({ hours: '', minutes: '' });
             setEventText('');
             setEditingEvent(null);
         }
@@ -74,7 +74,7 @@ const Calendar = () => {
         updatedEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
 
         setEvents(updatedEvents);
-        setEventTime({ hours: '00', minutes: '00' });
+        setEventTime({ hours: '', minutes: '' });
         setEventText('');
         setShowEventPopup(false);
         setEditingEvent(null);
@@ -164,6 +164,7 @@ const Calendar = () => {
                                     name="hours"
                                     min={0}
                                     max={24}
+                                    placeholder='00'
                                     className="border p-2 rounded w-16 text-center"
                                     value={eventTime.hours}
                                     onChange={handleTimeChange}
@@ -174,6 +175,7 @@ const Calendar = () => {
                                     name="minutes"
                                     min={0}
                                     max={59}
+                                    placeholder='00'
                                     className="border p-2 rounded w-16 text-center"
                                     value={eventTime.minutes}
                                     onChange={handleTimeChange}
@@ -215,13 +217,13 @@ const Calendar = () => {
                                 </div>
                                 <div className="flex gap-2">
                                     <button
-                                        className="bg-yellow-500 text-white px-3 py-1 rounded"
+                                        className="bg-blue-500 text-white px-3 py-1 rounded"
                                         onClick={() => handleDetails(event)}
                                     >
                                         Details
                                     </button>
                                     <button
-                                        className="bg-yellow-500 text-white px-3 py-1 rounded"
+                                        className="bg-blue-500 text-white px-3 py-1 rounded"
                                         onClick={() => handleEditEvent(event)}
                                     >
                                         Edit
@@ -253,7 +255,7 @@ const Calendar = () => {
                             <p>Description: {selectedEvent.text}</p>
                         </div>
                         <button
-                            className="bg-gray-500 text-white px-4 py-2 rounded"
+                            className="bg-blue-500 text-white px-4 py-2 rounded"
                             onClick={handleCloseModal}
                         >
                             Close
